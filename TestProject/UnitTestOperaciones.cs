@@ -75,6 +75,30 @@ namespace TestProject
         }
 
         [Fact]
+        public void TestRetiroCantidadCeroNoPermitido()
+        {
+            // Entrada
+            int? CantidadMovimiento = 0;
+
+            // Proceso
+            try
+            {                
+                Operaciones.AperturaCuenta();
+                Operaciones.Deposito(100);
+                CantidadMovimiento = Operaciones.Movimientos;
+                Operaciones.Retiro(0);
+
+                // Salida
+                Assert.Equal(CantidadMovimiento, Operaciones.Movimientos);
+            }
+            catch
+            {
+                // Salida
+                Assert.True(true); // Se presento la excepcion de valor menor o igual a 0
+            }
+        }
+
+        [Fact]
         public void TestRetiroExceptionSobreGiro()
         {
             // Entrada

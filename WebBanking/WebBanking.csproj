@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="BankingLibrary">
+      <HintPath>..\BankingLibrary\bin\Debug\netcoreapp3.1\BankingLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

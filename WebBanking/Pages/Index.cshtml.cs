@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BankingLibrary;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,9 +18,35 @@ namespace WebBanking.Pages
             _logger = logger;
         }
 
+        [BindProperty]
+        public string operation { get; set; }
+
+        [BindProperty]
+        public double amount { get; set; }
+
         public void OnGet()
         {
 
+        }
+
+        public void OnPostOpenAccount()
+        {
+            Operaciones.AperturaCuenta();
+        }
+
+        public void OnPostExecuteOperation()
+        {
+            switch (operation)
+            {
+                case "D":
+                    Operaciones.Deposito(amount);
+                    break;
+                case "R":
+                    Operaciones.Retiro(amount);
+                    break;
+            }
+
+            amount = 0;
         }
     }
 }

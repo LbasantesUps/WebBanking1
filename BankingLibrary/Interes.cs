@@ -2,16 +2,16 @@
 {
     public static class Interes
     {
-        public static double CalculoInteres(decimal Monto, decimal Tasa)
+        public static double CalculoInteres(double Monto, double Tasa)
         {
             // Entradas
             double Interes = 0;
-            int Dias = 366;
+            int Dias = 365;
             
             // Procesos
             if (Monto > 0)
             {
-                Interes = (double)(Monto * Tasa / Dias);
+                Interes = (Monto * Tasa) / Dias;
             }
 
             // Salida

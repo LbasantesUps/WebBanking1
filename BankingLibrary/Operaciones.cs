@@ -5,7 +5,7 @@ namespace BankingLibrary
     public static class Operaciones
     {
         public static string Cuenta { get; set; }
-        public static double? Saldo { get; set; }
+        public static double Saldo { get; set; }
         public static bool Abierta { get; set; }
         public static int? Movimientos { get; set; }
 
@@ -39,6 +39,12 @@ namespace BankingLibrary
             }
             Saldo -= Valor;
             Movimientos++;
+        }
+
+        public static void PagoIntereses()
+        {
+            double Intereses = Interes.CalculoInteres(Saldo, 0.2);
+            Deposito(Intereses);
         }
     }
 }

@@ -97,7 +97,7 @@ namespace TestProject
                 Assert.True(true); // Se presento la excepcion de valor menor o igual a 0
             }
         }
-
+        
         [Fact]
         public void TestRetiroExceptionSobreGiro()
         {
@@ -123,6 +123,22 @@ namespace TestProject
 
             // Salida
             Assert.Equal(0, Operaciones.Saldo);
+        }
+
+        [Fact]
+        public void TestSaldoConIntereses()
+        {
+            // Entrada
+            double Deposito = 100;
+            double InteresValor = Interes.CalculoInteres(Deposito, 0.2);
+
+            // Proceso
+            Operaciones.AperturaCuenta();
+            Operaciones.Deposito(Deposito);
+            Operaciones.PagoIntereses();
+
+            // Salida
+            Assert.Equal(Deposito + InteresValor, Operaciones.Saldo);
         }
     }
 }

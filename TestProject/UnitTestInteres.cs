@@ -8,9 +8,14 @@ namespace TestProject
         [Fact]
         public void TestInteres1()
         {
+            //Entrada
             double Monto = 100;
             double Tasa = 0.2;
+
+            // Procesos
             double Resultado = Interes.CalculoInteres(Monto, Tasa);
+
+            // Salida
             Assert.Equal(0.0548, Resultado, 4);
         }
 

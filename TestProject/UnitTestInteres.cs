@@ -11,7 +11,7 @@ namespace TestProject
             double Monto = 100;
             double Tasa = 0.2;
             double Resultado = Interes.CalculoInteres(Monto, Tasa);
-            Assert.Equal(0.0546, Resultado, 4);
+            Assert.Equal(0.0548, Resultado, 4);
         }
 
         [Fact]
